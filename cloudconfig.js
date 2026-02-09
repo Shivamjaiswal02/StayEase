@@ -1,6 +1,5 @@
-const cloudinary = require('cloudinary').v2;
-const  CloudinaryStorage  = require('multer-storage-cloudinary').CloudinaryStorage;
-
+const cloudinary = require("cloudinary").v2;
+const CloudinaryStorage = require("multer-storage-cloudinary");
 
 //cloudinary configuration -> matlb ki backend ko cloud se jor rahe hain
 cloudinary.config({
