@@ -1,5 +1,5 @@
 const cloudinary = require('cloudinary').v2;
-const  CloudinaryStorage  = require('multer-storage-cloudinary');
+const  CloudinaryStorage  = require('multer-storage-cloudinary').CloudinaryStorage;
 
 
 //cloudinary configuration -> matlb ki backend ko cloud se jor rahe hain
@@ -15,7 +15,7 @@ const storage = new CloudinaryStorage({
   cloudinary: cloudinary,
   params: {
     folder: 'EasyStay', // The name of the folder in cloudinary where images will be stored
-    allowedformat: ['png','jpg','jpeg','pdf'], // supports promises as well
+    allowed_formats: ['png','jpg','jpeg','pdf'], // supports promises as well
   },
 });
 
