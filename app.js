@@ -36,9 +36,9 @@ app.use(express.urlencoded({ extended: true }));
 app.use(methodOverride('_method'));
 app.engine('ejs', ejsMate);
 
-let mongo_url = "mongodb://localhost:27017/wanderlust";
+//let mongo_url = "mongodb://localhost:27017/wanderlust";
 
-//let dburl = process.env.ATLASDB_URL;
+let dburl = process.env.ATLASDB_URL;
 
 main().then(() =>{ 
     console.log("connected to db")
@@ -48,11 +48,11 @@ main().then(() =>{
 });
 
 async function main() {
-    await mongoose.connect(mongo_url);
+    await mongoose.connect(dburl);
 }
 
 const store = new MongoStore({
-    mongoUrl: mongo_url,
+    mongoUrl: dburl,
     crypto: {
         secret: process.env.SECRET,
     },
