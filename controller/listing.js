@@ -15,9 +15,9 @@ module.exports.NewListingForm = (req, res) => {
 
 //Create route to add a new listing to the database
 module.exports.CreateListing = async(req, res,next) => {
-    let url = req.file.path;
+    let url = req.file.secure_url;
     let filename = req.file.filename;
-
+    
     let newListing = new Listing(req.body);
     newListing.owner = req.user._id;
     newListing.image = {url: url, filename: filename};// set image field

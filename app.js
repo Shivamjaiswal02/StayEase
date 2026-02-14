@@ -36,9 +36,9 @@ app.use(express.urlencoded({ extended: true }));
 app.use(methodOverride('_method'));
 app.engine('ejs', ejsMate);
 
-//let mongo_url = "mongodb://localhost:27017/wanderlust";
+let mongo_url = "mongodb://localhost:27017/wanderlust";
 
-let dburl = process.env.ATLASDB_URL;
+//let dburl = process.env.ATLASDB_URL;
 
 main().then(() =>{ 
     console.log("connected to db")
@@ -48,11 +48,11 @@ main().then(() =>{
 });
 
 async function main() {
-    await mongoose.connect(dburl);
+    await mongoose.connect(mongo_url);
 }
 
 const store = new MongoStore({
-    mongoUrl: dburl,
+    mongoUrl: mongo_url,
     crypto: {
         secret: process.env.SECRET,
     },
@@ -96,9 +96,9 @@ app.use((req,res,next)=>{
     next();
 });
 
-app.get('/', (req, res) => {
-  res.send('connection successful to root route');
-});
+// app.get('/', (req, res) => {
+//   res.send('connection successful to root route');
+// });
 
 // app.get('/demouser', async (req, res) => {
 //     let fakeuser = new User({

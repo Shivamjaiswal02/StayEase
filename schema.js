@@ -1,17 +1,15 @@
 const Joi = require('joi');
 
 module.exports.listingschema = Joi.object({
+  listing: Joi.object({
     title: Joi.string().required(),
     description: Joi.string().required(),
-    price: Joi.number().required().min(0),      // price should be a non-negative number
+    price: Joi.number().required().min(0),
     location: Joi.string().required(),
-    image: Joi.object({
-            filename: Joi.string().allow('', null),
-            url: Joi.string().allow('', null)
-        }).optional()
-        .empty(''),
-    country: Joi.string().allow('')
+    country: Joi.string().allow(''),
+  }).required()
 });
+
 
 module.exports.reviewschema = Joi.object({
     review: Joi.object({
