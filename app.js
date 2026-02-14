@@ -108,6 +108,12 @@ app.use((req,res,next)=>{
 //     let newUser = await User.register(fakeuser, 'mypassword123'); //register method provided by passport-local-mongoose
 //     res.send(newUser);
 // });
+app.get("/", (req, res) => {
+    if (req.isAuthenticated()) {
+        return res.redirect("/listings");
+    }
+    res.redirect("/login");
+});
 
 app.use('/listings/:id/reviews', reviewRouter); //using review routes
 app.use('/listings', listingRouter); //using listing routes
