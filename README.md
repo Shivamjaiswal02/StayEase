@@ -122,3 +122,4 @@ CLOUDINARY_SECRET=your_secret
 Shivam Jaiswal
 
 - GitHub: https://github.com/Shivamjaiswal02
+- Live: https://stayease-fq40.onrender.com
